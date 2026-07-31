@@ -1,0 +1,572 @@
+[
+ {
+  "corpus_file": "cd_bed_stereo",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_stereo",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_5dot1",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_5dot1",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_5dot1dot2",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_5dot1dot2",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_5dot1dot4",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_5dot1dot4",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_7dot1",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_7dot1",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_7dot1dot4",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_7dot1dot4",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_hoa_foa",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_hoa_foa",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_hoa_3oa",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_hoa_3oa",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_binaural",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_binaural",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_loudness",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_loudness",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_no_loudness",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_bed_no_loudness",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_multi_programme",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_multi_programme",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_mixed_bed_hoa",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_mixed_bed_hoa",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "cd_userdef_pack",
+  "profile": "base",
+  "expected": "reject",
+  "observed": "reject",
+  "verdict": "MATCH",
+  "stderr_tail": [
+   "WARNING: All log messages before absl::InitializeLog() is called are written to STDERR",
+   "I0000 00:00:1784596516.672422    7630 encoder_main.cc:156] Using IAMFbaseprofile version.",
+   "W0000 00:00:1784596516.672693    7630 xml_to_adm.cc:519] Ignoring unknown object with audio_object_id= AO_1001. Error: INVALID_ARGUMENT: Not under common definition.",
+   "E0000 00:00:1784596516.672740    7630 encoder_main.cc:165] NOT_FOUND: No audioObject present."
+  ]
+ },
+ {
+  "corpus_file": "cd_userdef_pack",
+  "profile": "enhanced",
+  "expected": "reject",
+  "observed": "reject",
+  "verdict": "MATCH",
+  "stderr_tail": [
+   "WARNING: All log messages before absl::InitializeLog() is called are written to STDERR",
+   "I0000 00:00:1784596516.675958    7631 encoder_main.cc:156] Using IAMFenhancedprofile version.",
+   "W0000 00:00:1784596516.676180    7631 xml_to_adm.cc:519] Ignoring unknown object with audio_object_id= AO_1001. Error: INVALID_ARGUMENT: Not under common definition.",
+   "E0000 00:00:1784596516.676297    7631 encoder_main.cc:165] NOT_FOUND: No audioObject present."
+  ]
+ },
+ {
+  "corpus_file": "cd_objects_nodolby",
+  "profile": "base",
+  "expected": "reject",
+  "observed": "reject",
+  "verdict": "MATCH",
+  "stderr_tail": [
+   "WARNING: All log messages before absl::InitializeLog() is called are written to STDERR",
+   "I0000 00:00:1784596516.679183    7632 encoder_main.cc:156] Using IAMFbaseprofile version.",
+   "W0000 00:00:1784596516.679400    7632 xml_to_adm.cc:519] Ignoring unknown object with audio_object_id= AO_1001. Error: INVALID_ARGUMENT: Not under common definition.",
+   "W0000 00:00:1784596516.679426    7632 xml_to_adm.cc:519] Ignoring unknown object with audio_object_id= AO_1002. Error: INVALID_ARGUMENT: Not under common definition.",
+   "E0000 00:00:1784596516.679454    7632 encoder_main.cc:165] NOT_FOUND: No audioObject present."
+  ]
+ },
+ {
+  "corpus_file": "cd_objects_nodolby",
+  "profile": "enhanced",
+  "expected": "reject",
+  "observed": "reject",
+  "verdict": "MATCH",
+  "stderr_tail": [
+   "WARNING: All log messages before absl::InitializeLog() is called are written to STDERR",
+   "I0000 00:00:1784596516.682439    7633 encoder_main.cc:156] Using IAMFenhancedprofile version.",
+   "W0000 00:00:1784596516.682699    7633 xml_to_adm.cc:519] Ignoring unknown object with audio_object_id= AO_1001. Error: INVALID_ARGUMENT: Not under common definition.",
+   "W0000 00:00:1784596516.682734    7633 xml_to_adm.cc:519] Ignoring unknown object with audio_object_id= AO_1002. Error: INVALID_ARGUMENT: Not under common definition.",
+   "E0000 00:00:1784596516.682766    7633 encoder_main.cc:165] NOT_FOUND: No audioObject present."
+  ]
+ },
+ {
+  "corpus_file": "neg_no_axml",
+  "profile": "base",
+  "expected": "reject",
+  "observed": "reject",
+  "verdict": "MATCH",
+  "stderr_tail": [
+   "WARNING: All log messages before absl::InitializeLog() is called are written to STDERR",
+   "I0000 00:00:1784596516.686663    7634 encoder_main.cc:156] Using IAMFbaseprofile version.",
+   "E0000 00:00:1784596516.686837    7634 encoder_main.cc:165] FAILED_PRECONDITION: Could not find `axml` header."
+  ]
+ },
+ {
+  "corpus_file": "neg_no_axml",
+  "profile": "enhanced",
+  "expected": "reject",
+  "observed": "reject",
+  "verdict": "MATCH",
+  "stderr_tail": [
+   "WARNING: All log messages before absl::InitializeLog() is called are written to STDERR",
+   "I0000 00:00:1784596516.689928    7635 encoder_main.cc:156] Using IAMFenhancedprofile version.",
+   "E0000 00:00:1784596516.690035    7635 encoder_main.cc:165] FAILED_PRECONDITION: Could not find `axml` header."
+  ]
+ },
+ {
+  "corpus_file": "dlb_obj_static1",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_static1",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_static4",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_static4",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_static16",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_static16",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_static28",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_static28",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_auto_slow",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_auto_slow",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_auto_dense",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "reject",
+  "verdict": "SURPRISE",
+  "stderr_tail": [
+   "I0000 00:00:1784596525.572566    7656 wav_writer.cc:129] Writer \"/tmp/dlb_obj_auto_dense_adm_segment.wav\"",
+   "I0000 00:00:1784596525.573670    7656 wav_writer.cc:129] Writer \"/tmp/dlb_obj_auto_dense_adm_segment.wav\"",
+   "I0000 00:00:1784596525.574810    7656 wav_writer.cc:129] Writer \"/tmp/dlb_obj_auto_dense_adm_segment.wav\"",
+   "I0000 00:00:1784596525.575749    7656 wav_writer.cc:129] Writer \"/tmp/dlb_obj_auto_dense_adm_segment.wav\"",
+   "F0000 00:00:1784596525.576701    7656 wav_file_splicer.cc:436] Check failed: fabs(num_samples_count - *total_samples_per_channel) <= kErrorTolerance (1.84467e+19 vs. 1e-05) ",
+   "*** Check failure stack trace: ***"
+  ]
+ },
+ {
+  "corpus_file": "dlb_obj_auto_dense",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "reject",
+  "verdict": "SURPRISE",
+  "stderr_tail": [
+   "I0000 00:00:1784596525.748722    7657 wav_writer.cc:129] Writer \"/tmp/dlb_obj_auto_dense_adm_segment.wav\"",
+   "I0000 00:00:1784596525.749508    7657 wav_writer.cc:129] Writer \"/tmp/dlb_obj_auto_dense_adm_segment.wav\"",
+   "I0000 00:00:1784596525.750287    7657 wav_writer.cc:129] Writer \"/tmp/dlb_obj_auto_dense_adm_segment.wav\"",
+   "I0000 00:00:1784596525.751106    7657 wav_writer.cc:129] Writer \"/tmp/dlb_obj_auto_dense_adm_segment.wav\"",
+   "F0000 00:00:1784596525.752035    7657 wav_file_splicer.cc:436] Check failed: fabs(num_samples_count - *total_samples_per_channel) <= kErrorTolerance (1.84467e+19 vs. 1e-05) ",
+   "*** Check failure stack trace: ***"
+  ]
+ },
+ {
+  "corpus_file": "dlb_obj_auto_ultra",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_auto_ultra",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_jump",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_jump",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_gainauto",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_gainauto",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_objgain",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "reject",
+  "verdict": "SURPRISE",
+  "stderr_tail": [
+   "I0000 00:00:1784596531.790917    7671 mix_presentation.cc:803]     tags[0]:",
+   "I0000 00:00:1784596531.790925    7671 mix_presentation.cc:804]       tag_name= \"iamf_encoder\"",
+   "I0000 00:00:1784596531.790942    7671 mix_presentation.cc:805]       tag_value= \"GitHub/iamf-tools\"",
+   "I0000 00:00:1784596531.790951    7671 mix_presentation.cc:828]   No optional fields detected.",
+   "E0000 00:00:1784596531.791055    7671 encoder_main.cc:191] Failure. Test case expected to pass.",
+   "status= INVALID_ARGUMENT: Inequivalent `param_definition` for id = 0"
+  ]
+ },
+ {
+  "corpus_file": "dlb_obj_objgain",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "reject",
+  "verdict": "SURPRISE",
+  "stderr_tail": [
+   "I0000 00:00:1784596531.981699    7672 mix_presentation.cc:803]     tags[0]:",
+   "I0000 00:00:1784596531.981705    7672 mix_presentation.cc:804]       tag_name= \"iamf_encoder\"",
+   "I0000 00:00:1784596531.981711    7672 mix_presentation.cc:805]       tag_value= \"GitHub/iamf-tools\"",
+   "I0000 00:00:1784596531.981717    7672 mix_presentation.cc:828]   No optional fields detected.",
+   "E0000 00:00:1784596531.981806    7672 encoder_main.cc:191] Failure. Test case expected to pass.",
+   "status= INVALID_ARGUMENT: Inequivalent `param_definition` for id = 0"
+  ]
+ },
+ {
+  "corpus_file": "dlb_obj_spherical",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_obj_spherical",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_bed_5dot1",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_bed_5dot1_labelonly",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_bed_7dot1dot2",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_mixed_5dot1_4obj",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_mixed_5dot1_4obj",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_importance",
+  "profile": "base",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_importance",
+  "profile": "enhanced",
+  "expected": "ok",
+  "observed": "ok",
+  "verdict": "MATCH",
+  "stderr_tail": null
+ },
+ {
+  "corpus_file": "dlb_16bit",
+  "profile": "base",
+  "expected": "reject",
+  "observed": "reject",
+  "verdict": "MATCH",
+  "stderr_tail": [
+   "WARNING: All log messages before absl::InitializeLog() is called are written to STDERR",
+   "I0000 00:00:1784596543.087772    7696 encoder_main.cc:156] Using IAMFbaseprofile version.",
+   "E0000 00:00:1784596543.088457    7696 encoder_main.cc:165] INVALID_ARGUMENT: Invalid bit_depth= 16 detected in Dolby ADM file."
+  ]
+ },
+ {
+  "corpus_file": "dlb_16bit",
+  "profile": "enhanced",
+  "expected": "reject",
+  "observed": "reject",
+  "verdict": "MATCH",
+  "stderr_tail": [
+   "WARNING: All log messages before absl::InitializeLog() is called are written to STDERR",
+   "I0000 00:00:1784596543.092646    7697 encoder_main.cc:156] Using IAMFenhancedprofile version.",
+   "E0000 00:00:1784596543.092860    7697 encoder_main.cc:165] INVALID_ARGUMENT: Invalid bit_depth= 16 detected in Dolby ADM file."
+  ]
+ }
+]

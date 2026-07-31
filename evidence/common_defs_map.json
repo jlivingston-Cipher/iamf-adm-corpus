@@ -1,0 +1,352 @@
+{
+ "AP_00010001": {
+  "name": "urn:itu:bs:775:3:pack:mono_(0+1+0)",
+  "channels": [
+   {
+    "id": "AC_00010003",
+    "name": "FrontCentre",
+    "track": "AT_00010003_01"
+   }
+  ]
+ },
+ "AP_00010002": {
+  "name": "urn:itu:bs:2051:0:pack:stereo_(0+2+0)",
+  "channels": [
+   {
+    "id": "AC_00010001",
+    "name": "FrontLeft",
+    "track": "AT_00010001_01"
+   },
+   {
+    "id": "AC_00010002",
+    "name": "FrontRight",
+    "track": "AT_00010002_01"
+   }
+  ]
+ },
+ "AP_00010003": {
+  "name": "urn:itu:bs:2051:0:pack:5.1_(0+5+0)",
+  "channels": [
+   {
+    "id": "AC_00010001",
+    "name": "FrontLeft",
+    "track": "AT_00010001_01"
+   },
+   {
+    "id": "AC_00010002",
+    "name": "FrontRight",
+    "track": "AT_00010002_01"
+   },
+   {
+    "id": "AC_00010003",
+    "name": "FrontCentre",
+    "track": "AT_00010003_01"
+   },
+   {
+    "id": "AC_00010004",
+    "name": "LowFrequencyEffects",
+    "track": "AT_00010004_01"
+   },
+   {
+    "id": "AC_00010005",
+    "name": "SurroundLeft",
+    "track": "AT_00010005_01"
+   },
+   {
+    "id": "AC_00010006",
+    "name": "SurroundRight",
+    "track": "AT_00010006_01"
+   }
+  ]
+ },
+ "AP_00010004": {
+  "name": "urn:itu:bs:2051:0:pack:7.1top_(2+5+0)",
+  "channels": [
+   {
+    "id": "AC_00010001",
+    "name": "FrontLeft",
+    "track": "AT_00010001_01"
+   },
+   {
+    "id": "AC_00010002",
+    "name": "FrontRight",
+    "track": "AT_00010002_01"
+   },
+   {
+    "id": "AC_00010003",
+    "name": "FrontCentre",
+    "track": "AT_00010003_01"
+   },
+   {
+    "id": "AC_00010004",
+    "name": "LowFrequencyEffects",
+    "track": "AT_00010004_01"
+   },
+   {
+    "id": "AC_00010005",
+    "name": "SurroundLeft",
+    "track": "AT_00010005_01"
+   },
+   {
+    "id": "AC_00010006",
+    "name": "SurroundRight",
+    "track": "AT_00010006_01"
+   },
+   {
+    "id": "AC_0001000d",
+    "name": "TopFrontLeft",
+    "track": "AT_0001000d_01"
+   },
+   {
+    "id": "AC_0001000f",
+    "name": "TopFrontRight",
+    "track": "AT_0001000f_01"
+   }
+  ]
+ },
+ "AP_00010005": {
+  "name": "urn:itu:bs:2051:0:pack:9.1_5.1.4_(4+5+0)",
+  "channels": [
+   {
+    "id": "AC_00010001",
+    "name": "FrontLeft",
+    "track": "AT_00010001_01"
+   },
+   {
+    "id": "AC_00010002",
+    "name": "FrontRight",
+    "track": "AT_00010002_01"
+   },
+   {
+    "id": "AC_00010003",
+    "name": "FrontCentre",
+    "track": "AT_00010003_01"
+   },
+   {
+    "id": "AC_00010004",
+    "name": "LowFrequencyEffects",
+    "track": "AT_00010004_01"
+   },
+   {
+    "id": "AC_00010005",
+    "name": "SurroundLeft",
+    "track": "AT_00010005_01"
+   },
+   {
+    "id": "AC_00010006",
+    "name": "SurroundRight",
+    "track": "AT_00010006_01"
+   },
+   {
+    "id": "AC_0001000d",
+    "name": "TopFrontLeft",
+    "track": "AT_0001000d_01"
+   },
+   {
+    "id": "AC_0001000f",
+    "name": "TopFrontRight",
+    "track": "AT_0001000f_01"
+   },
+   {
+    "id": "AC_00010010",
+    "name": "TopSurroundLeft",
+    "track": "AT_00010010_01"
+   },
+   {
+    "id": "AC_00010012",
+    "name": "TopSurroundRight",
+    "track": "AT_00010012_01"
+   }
+  ]
+ },
+ "AP_0001000f": {
+  "name": "7.1back_(0+7+0)",
+  "channels": [
+   {
+    "id": "AC_00010001",
+    "name": "FrontLeft",
+    "track": "AT_00010001_01"
+   },
+   {
+    "id": "AC_00010002",
+    "name": "FrontRight",
+    "track": "AT_00010002_01"
+   },
+   {
+    "id": "AC_00010003",
+    "name": "FrontCentre",
+    "track": "AT_00010003_01"
+   },
+   {
+    "id": "AC_00010004",
+    "name": "LowFrequencyEffects",
+    "track": "AT_00010004_01"
+   },
+   {
+    "id": "AC_0001000a",
+    "name": "SideLeft",
+    "track": "AT_0001000a_01"
+   },
+   {
+    "id": "AC_0001000b",
+    "name": "SideRight",
+    "track": "AT_0001000b_01"
+   },
+   {
+    "id": "AC_0001001c",
+    "name": "BackLeftMid",
+    "track": "AT_0001001c_01"
+   },
+   {
+    "id": "AC_0001001d",
+    "name": "BackRightMid",
+    "track": "AT_0001001d_01"
+   }
+  ]
+ },
+ "AP_00010017": {
+  "name": "11.1_7.1.4_(4+7+0)",
+  "channels": [
+   {
+    "id": "AC_00010001",
+    "name": "FrontLeft",
+    "track": "AT_00010001_01"
+   },
+   {
+    "id": "AC_00010002",
+    "name": "FrontRight",
+    "track": "AT_00010002_01"
+   },
+   {
+    "id": "AC_00010003",
+    "name": "FrontCentre",
+    "track": "AT_00010003_01"
+   },
+   {
+    "id": "AC_00010004",
+    "name": "LowFrequencyEffects",
+    "track": "AT_00010004_01"
+   },
+   {
+    "id": "AC_0001000a",
+    "name": "SideLeft",
+    "track": "AT_0001000a_01"
+   },
+   {
+    "id": "AC_0001000b",
+    "name": "SideRight",
+    "track": "AT_0001000b_01"
+   },
+   {
+    "id": "AC_0001001c",
+    "name": "BackLeftMid",
+    "track": "AT_0001001c_01"
+   },
+   {
+    "id": "AC_0001001d",
+    "name": "BackRightMid",
+    "track": "AT_0001001d_01"
+   },
+   {
+    "id": "AC_00010022",
+    "name": "TopFrontLeftMid",
+    "track": "AT_00010022_01"
+   },
+   {
+    "id": "AC_00010023",
+    "name": "TopFrontRightMid",
+    "track": "AT_00010023_01"
+   },
+   {
+    "id": "AC_0001001e",
+    "name": "TopBackLeftMid",
+    "track": "AT_0001001e_01"
+   },
+   {
+    "id": "AC_0001001f",
+    "name": "TopBackRightMid",
+    "track": "AT_0001001f_01"
+   }
+  ]
+ },
+ "AP_00040001": {
+  "name": "3D_order1_SN3D_ACN",
+  "channels": [
+   {
+    "id": "AC_00040001",
+    "name": "SN3D_ACN_0",
+    "track": "AT_00040001_01"
+   },
+   {
+    "id": "AC_00040002",
+    "name": "SN3D_ACN_1",
+    "track": "AT_00040002_01"
+   },
+   {
+    "id": "AC_00040003",
+    "name": "SN3D_ACN_2",
+    "track": "AT_00040003_01"
+   },
+   {
+    "id": "AC_00040004",
+    "name": "SN3D_ACN_3",
+    "track": "AT_00040004_01"
+   }
+  ]
+ },
+ "AP_00040003": {
+  "name": "3D_order3_SN3D_ACN",
+  "channels": [
+   {
+    "id": "AC_0004000a",
+    "name": "SN3D_ACN_9",
+    "track": "AT_0004000a_01"
+   },
+   {
+    "id": "AC_0004000b",
+    "name": "SN3D_ACN_10",
+    "track": "AT_0004000b_01"
+   },
+   {
+    "id": "AC_0004000c",
+    "name": "SN3D_ACN_11",
+    "track": "AT_0004000c_01"
+   },
+   {
+    "id": "AC_0004000d",
+    "name": "SN3D_ACN_12",
+    "track": "AT_0004000d_01"
+   },
+   {
+    "id": "AC_0004000e",
+    "name": "SN3D_ACN_13",
+    "track": "AT_0004000e_01"
+   },
+   {
+    "id": "AC_0004000f",
+    "name": "SN3D_ACN_14",
+    "track": "AT_0004000f_01"
+   },
+   {
+    "id": "AC_00040010",
+    "name": "SN3D_ACN_15",
+    "track": "AT_00040010_01"
+   }
+  ]
+ },
+ "AP_00050001": {
+  "name": "Binaural",
+  "channels": [
+   {
+    "id": "AC_00050001",
+    "name": "LeftEar",
+    "track": "AT_00050001_01"
+   },
+   {
+    "id": "AC_00050002",
+    "name": "RightEar",
+    "track": "AT_00050002_01"
+   }
+  ]
+ }
+}

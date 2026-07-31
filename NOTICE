@@ -1,0 +1,22 @@
+iamf-adm-corpus
+Copyright 2026 The iamf-adm-corpus authors
+
+This product consists of original work. The ADM BWF corpus generator
+authors its ADM/BWF structures (axml, chna, dbmd) as a clean-room
+implementation written from ITU-R BS.2076-2, ITU-R BS.2094, and
+EBU Tech 3285; the spherical-harmonic HOA encoding is computed from
+the standard ACN/SN3D definitions. No EBU, AOM, or Dolby source code
+is used or derived.
+
+The measurement harness invokes third-party tools strictly as
+subprocess oracles: the iamf-tools encoder and decoder, libiamf's
+iamfdec, the EBU ADM Renderer (EAR), and FFmpeg. None of their code
+is included in, linked into, or derived from this project.
+
+The spectral-identity measurement convention (one unique identifier
+sine per track) is original to this project's WP1 study.
+
+"IAMF" and "ADM" are used descriptively as format names.
+
+numpy and scipy (BSD licenses) are runtime dependencies of the
+generator and measurement scripts.

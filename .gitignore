@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+adm-corpus/
+out/
+*.wav
+*.iamf

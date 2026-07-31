@@ -1,0 +1,192 @@
+[
+ {
+  "n_blocks": 1,
+  "block_dur_ms": 10000.0,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 5,
+  "block_dur_ms": 2000.0,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 10,
+  "block_dur_ms": 1000.0,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 20,
+  "block_dur_ms": 500.0,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 40,
+  "block_dur_ms": 250.0,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 50,
+  "block_dur_ms": 200.0,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 80,
+  "block_dur_ms": 125.0,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 100,
+  "block_dur_ms": 100.0,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 125,
+  "block_dur_ms": 80.0,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 160,
+  "block_dur_ms": 62.5,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 200,
+  "block_dur_ms": 50.0,
+  "ok": false,
+  "returncode": -6,
+  "signal": 6,
+  "tail": [
+   "*** Check failure stack trace: ***"
+  ]
+ },
+ {
+  "n_blocks": 250,
+  "block_dur_ms": 40.0,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 320,
+  "block_dur_ms": 31.25,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 400,
+  "block_dur_ms": 25.0,
+  "ok": false,
+  "returncode": -6,
+  "signal": 6,
+  "tail": [
+   "*** Check failure stack trace: ***"
+  ]
+ },
+ {
+  "n_blocks": 500,
+  "block_dur_ms": 20.0,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 640,
+  "block_dur_ms": 15.625,
+  "ok": false,
+  "returncode": -6,
+  "signal": 6,
+  "tail": [
+   "*** Check failure stack trace: ***"
+  ]
+ },
+ {
+  "n_blocks": 800,
+  "block_dur_ms": 12.5,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 1000,
+  "block_dur_ms": 10.0,
+  "ok": true,
+  "returncode": 0,
+  "signal": null,
+  "tail": [
+   "status= OK"
+  ]
+ },
+ {
+  "n_blocks": 2000,
+  "block_dur_ms": 5.0,
+  "ok": false,
+  "returncode": -6,
+  "signal": 6,
+  "tail": [
+   "*** Check failure stack trace: ***"
+  ]
+ }
+]
