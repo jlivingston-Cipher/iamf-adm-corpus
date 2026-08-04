@@ -88,6 +88,9 @@ and roughly half of plausible automation grids abort the encoder. Archived run r
 - [`iamf-sentinel-pro`](https://github.com/jlivingston-Cipher/iamf-sentinel-pro) — rendered-QC
   plugin whose `adm-compare` mode applies this corpus's source-referenced method to real masters
 - [`iamf-loom`](https://github.com/jlivingston-Cipher/iamf-loom) — manifest-driven IAMF packager
+- [`Inseglet`](https://github.com/inseglet-audio/inseglet) — authoring-side companion (a native
+  REAPER MCP extension): an independent native ADM producer exercised against this corpus's
+  cross-validation method
 
 ## License
 
