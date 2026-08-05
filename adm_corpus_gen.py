@@ -258,7 +258,14 @@ def custom_pack_xml(pack_id, name, type_label, type_def, chan_ids):
 
 def block_xml_cart(bid_base, idx, rtime, dur, x, y, z, gain=None, jump=None):
     g = f"<gain>{gain:.6f}</gain>" if gain is not None else ""
-    j = (f'<jumpPosition switch="1" interpolationLength="0.0"/>'
+    # BS.2076: the jumpPosition BOOLEAN is element CONTENT, and
+    # interpolationLength is an optional ATTRIBUTE. There is no `switch`
+    # attribute in ADM. The earlier `switch="1"` form left the element text
+    # empty, so every conforming reader saw an unparseable bool
+    # (EAR 2.1.x: "could not parse bool:") and refused the whole axml —
+    # see doc 123 §5. The literal below matches EAR's own writer
+    # (`jump_position_to_xml`: text = "1", attribute = "{:07.5f}").
+    j = (f'<jumpPosition interpolationLength="0.00000">1</jumpPosition>'
          if jump else "")
     return (f'<audioBlockFormat audioBlockFormatID="{bid_base}_{idx + 1:08x}" '
             f'rtime="{t_hms(rtime)}" duration="{t_hms(dur)}">'
