@@ -350,8 +350,17 @@ DLB_BEDS = {
 
 # --------------------------------------------------------------------------
 # Trajectories (ground truth, ADM polar convention: az deg CCW from front,
-# el deg up, dist in [0..~1.4]); cartesian per ADM: x=-sin(az)cos(el)*d,
-# y=cos(az)cos(el)*d, z=sin(el)*d.
+# el deg up, dist). Every trajectory below returns dist 1.0, so every object
+# in the corpus sits at the reference distance; what sits further out is the
+# Dolby beds' room-centric channels (|p| = 1, sqrt 2 or sqrt 3 on the cube).
+# (The bound once written here, "dist in [0..~1.4]", was read as objects out
+# to |p| ~ 1.4 -- s318 IA-0057 section 6.1; none are.)
+# The cartesian form written for an object is plain spherical trig:
+# x=-sin(az)cos(el)*d, y=cos(az)cos(el)*d, z=sin(el)*d. That is NOT the
+# BS.2127-0 section 10.1 mapping between ADM's polar and Cartesian spaces
+# (which puts (-1, 0, 0) at azimuth 70, not 90), so off the five mid-layer
+# speaker directions a cartesian object here means, by the standard, a
+# different direction from its polar ground truth (s324 IA-0076).
 # --------------------------------------------------------------------------
 
 def traj_circle(k_obj, n_obj):
