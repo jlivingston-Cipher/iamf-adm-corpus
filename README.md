@@ -61,6 +61,7 @@ Four scripts, run in order; all paths default to the WP1 toolchain layout and ho
 | Script | What it does |
 |---|---|
 | `build_toolchain.sh` | Deterministic rebuild of the reference toolchain (iamf-tools, libiamf, FFmpeg; ~35 min cold on 2 cores) |
+| `macos/complete_toolchain.sh` | On macOS, completes a root that already holds iamf-tools: the loudness kernel, libiamf's `iamfdec`, FFmpeg, MP4Box and a video donor ([`macos/README.md`](macos/README.md)) |
 | `adm_ingest_run.py` | The ingest matrix: every corpus file × both IAMF profiles × the importance-threshold axis; captures rc/stderr/timing, probes every produced bitstream, and diffs outcomes against the manifest's pre-registered expectations |
 | `ear_prerender.py` | Pre-renders the same source ADM with the EBU ADM Renderer (EAR, BS.2127) on BS.2051 reference layouts — the independent oracle |
 | `fidelity_measure.py` | Per bitstream: decode on reference layouts, then measure routing survival (spectral identity), per-channel and overall RMS error (raw and gain-matched), 100 ms windowed error envelopes, energy-vector angular error vs analytic trajectories, and BS.1770 loudness of each render vs the bitstream's declared values |
