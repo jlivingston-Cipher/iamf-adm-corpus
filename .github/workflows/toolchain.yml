@@ -1,0 +1,73 @@
+# The harness's toolchain, built by build_toolchain.sh in debian:trixie, then
+# the corpus generated and run through the encoder.
+#
+# Why (IA-0105, 2026-11-11). build_toolchain.sh now builds by
+# iamf-sentinel-pro's oci/toolchain-build.sh at a pinned commit; this job runs
+# it whenever it or the harness changes, so the recipe is proved on Linux, not
+# assumed. What it proves: the toolchain builds (iamf-tools v4.0.0, libiamf
+# v2.0.1, FFmpeg n8.1.3) with encoder_main, decoder_main and probe_main from
+# one compile; the generator reproduces the committed manifest and the corpus
+# bytes; the ingest matrix meets the manifest's pre-registered expectation on
+# every cell it runs; the EAR stage installs a working ear-render. The
+# dlb_bed_ family is run on a private machine only (evidence/README.md,
+# withheld records). It does NOT run fidelity_measure.py (EAR renders take
+# about an hour).
+name: toolchain
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - build_toolchain.sh
+      - adm_corpus_gen.py
+      - adm_ingest_run.py
+      - corpus_manifest.json
+      - .github/workflows/toolchain.yml
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    container: debian:trixie
+    timeout-minutes: 120
+    env:
+      SENTINEL_TOOLCHAIN: /opt/iamf-toolchain
+    steps:
+      - name: git and python
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends git ca-certificates python3 python3-venv
+      - uses: actions/checkout@v4
+      - name: build the toolchain (build_toolchain.sh toolchain)
+        run: bash build_toolchain.sh toolchain
+      - name: keep the build logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: toolchain-build-logs
+          path: |
+            /opt/iamf-toolchain/tc-build/build-logs
+            /opt/iamf-toolchain/tc-build/it/logs
+          if-no-files-found: ignore
+      - name: generate the corpus; it must reproduce the committed bytes
+        run: |
+          python3 -m venv /opt/venv
+          /opt/venv/bin/pip install -q numpy scipy
+          /opt/venv/bin/python adm_corpus_gen.py "$SENTINEL_TOOLCHAIN/adm-corpus"
+          cmp corpus_manifest.json "$SENTINEL_TOOLCHAIN/adm-corpus/corpus_manifest.json"
+          cd "$SENTINEL_TOOLCHAIN/adm-corpus"
+          agg=$(cat $(ls *.wav | LC_ALL=C sort) | sha256sum | cut -c1-16)
+          echo "corpus wav aggregate $agg"
+          test "$agg" = 7fd3cde2e24f66c1
+      - name: ingest matrix (all but dlb_bed_); every cell as pre-registered
+        env:
+          ADM_INGEST_ONLY: cd_,neg_,dlb_obj_,dlb_mixed_,dlb_importance,dlb_16bit
+        run: |
+          /opt/venv/bin/python adm_ingest_run.py
+          /opt/venv/bin/python - <<'EOF'
+          import json, os
+          v = json.load(open(os.environ["SENTINEL_TOOLCHAIN"] + "/out/adm-ingest/expectation_verdicts.json"))
+          bad = [x for x in v if x["verdict"] != "MATCH"]
+          print(f"{len(v)} cells, {len(bad)} not as pre-registered")
+          assert len(v) == 60 and not bad, bad
+          EOF
+      - name: the EAR stage (build_toolchain.sh ear)
+        run: bash build_toolchain.sh ear

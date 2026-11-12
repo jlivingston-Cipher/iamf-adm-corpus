@@ -28,6 +28,9 @@ import sys
 
 import numpy as np
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from bs2127_position import as_read  # noqa: E402
+
 ROOT = os.environ.get("SENTINEL_TOOLCHAIN", "/home/claude/iamf-wp1")
 DEC = f"{ROOT}/src/build-iamf/decoder_main"
 FF = f"{ROOT}/bin/ffmpeg-install/bin/ffmpeg"
@@ -354,8 +357,10 @@ def energy_vector_objects(meta, layout, d_iamf, d_ear):
             continue
         if t.get("freq_hz") is None:
             continue
+        cart = not t.get("spherical_authored")
         row = {"track_index": i, "freq_hz": t["freq_hz"],
-               "jump_authored": bool(t.get("jump_authored"))}
+               "jump_authored": bool(t.get("jump_authored")),
+               "cartesian": cart}
         for tag, d in (("iamf", d_iamf), ("ear", d_ear)):
             if d is None:
                 continue
@@ -363,6 +368,16 @@ def energy_vector_objects(meta, layout, d_iamf, d_ear):
                                        bool(t.get("jump_authored")))
             if r is not None:
                 row[tag] = r
+            # A Cartesian object scored again against the direction BS.2127-0
+            # section 10.1.2 reads from its written position (IA-0105,
+            # F-324.2). Additive: the keys above are scored against the
+            # authored polar trajectory, as before.
+            if cart:
+                r2 = energy_vector_error_v2(
+                    d, as_read(t["blocks"], True), spk, t["freq_hz"],
+                    bool(t.get("jump_authored")))
+                if r2 is not None:
+                    row[f"{tag}_bs2127"] = r2
         if "iamf" in row and "ear" in row:
             row["excess_median_deg"] = round(
                 row["iamf"]["angular_err_median_deg"]
@@ -371,7 +386,7 @@ def energy_vector_objects(meta, layout, d_iamf, d_ear):
     if not out:
         return None
     res = {"spk_layout": layout, "band_width_hz": 60.0, "objects": out}
-    for tag in ("iamf", "ear"):
+    for tag in ("iamf", "ear", "iamf_bs2127", "ear_bs2127"):
         vals = [o[tag]["angular_err_median_deg"] for o in out if tag in o]
         if vals:
             res[f"{tag}_median_deg"] = round(float(np.median(vals)), 1)
@@ -490,6 +505,45 @@ def main():
         with open(os.path.join(OUT, "fidelity_report.json"), "w") as f:
             json.dump(report, f, indent=1)
     print(f"\n{len(report)} measurements -> {OUT}/fidelity_report.json")
+    conversion_pass()
+
+
+def conversion_pass():
+    """S-333 (per-track level) and S-334 (per-track direction) on every
+    produced bitstream, against its source master: iamf-sentinel-pro's
+    conversion_fidelity, each reading with its margin and call. Optional:
+    without iamf-sentinel-pro installed the file records why it did not run.
+    Written to conversion_report.json beside fidelity_report.json."""
+    path = os.path.join(OUT, "conversion_report.json")
+    try:
+        from sentinel_pro.adm_conversion import conversion_fidelity
+        from importlib.metadata import version
+        pro = version("iamf-sentinel-pro")
+    except Exception as e:  # noqa: BLE001 -- recorded, not raised
+        with open(path, "w") as f:
+            json.dump({"not_run": f"iamf-sentinel-pro not importable: {e}"},
+                      f, indent=1)
+        print(f"conversion pass not run ({e})")
+        return
+    rows = []
+    for entry in INGEST_RESULTS:
+        if not entry["ok"] or entry.get("importance_threshold") not in (None, 0):
+            continue
+        name = entry["corpus_file"]
+        for outp in entry["outputs"]:
+            findings, met = conversion_fidelity(
+                f"{CORPUS}/{name}.wav", os.path.join(INGEST, outp["file"]))
+            rows.append({"corpus_file": name, "profile": entry["profile"],
+                         "iamf": outp["file"], "metrics": met,
+                         "findings": sorted({(x.check_id, x.severity.label)
+                                             for x in findings})})
+            calls = [t.get("level_call") for t in met.get("tracks", [])]
+            print(f"{name:28s} {entry['profile']:9s} "
+                  f"{met.get('not_judged') or ''} "
+                  f"fail={calls.count('fail')} undet={calls.count('undetermined')}")
+    with open(path, "w") as f:
+        json.dump({"iamf_sentinel_pro": pro, "records": rows}, f, indent=1)
+    print(f"{len(rows)} conversion readings -> {path}")
 
 
 if __name__ == "__main__":

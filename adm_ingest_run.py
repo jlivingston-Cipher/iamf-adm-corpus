@@ -21,6 +21,10 @@ CORPUS = f"{ROOT}/adm-corpus"
 OUT = sys.argv[1] if len(sys.argv) > 1 else f"{ROOT}/out/adm-ingest"
 
 MANIFEST = json.load(open(f"{CORPUS}/corpus_manifest.json"))
+# ADM_INGEST_ONLY=prefix[,prefix...] runs only the corpus files whose names
+# start with one of the prefixes (the importance axis runs only if
+# dlb_importance is among them). Unset: the whole matrix.
+ONLY = tuple(p for p in os.environ.get("ADM_INGEST_ONLY", "").split(",") if p)
 
 PROFILES = ("base", "enhanced")
 
@@ -70,6 +74,8 @@ def main():
     results = []
     verdicts = []
     for name, meta in MANIFEST["files"].items():
+        if ONLY and not name.startswith(ONLY):
+            continue
         for profile in PROFILES:
             e = run_one(name, profile)
             results.append(e)
@@ -85,7 +91,7 @@ def main():
                   f"{name:28s} {profile:9s} {e['wall_s']:7.1f}s "
                   f"{len(e['outputs'])} out")
     # importance-threshold axis on the importance file
-    for thr in (5, 11):
+    for thr in (5, 11) if not ONLY or "dlb_importance".startswith(ONLY) else ():
         e = run_one("dlb_importance", "base", threshold=thr,
                     tag=f"dlb_importance__base_thr{thr}")
         results.append(e)
