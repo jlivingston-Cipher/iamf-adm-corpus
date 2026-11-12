@@ -60,11 +60,11 @@ Four scripts, run in order; all paths default to the WP1 toolchain layout and ho
 
 | Script | What it does |
 |---|---|
-| `build_toolchain.sh` | Deterministic rebuild of the reference toolchain (iamf-tools, libiamf, FFmpeg; ~35 min cold on 2 cores) |
+| `build_toolchain.sh` | On Linux, builds the reference toolchain (iamf-tools v4.0.0, libiamf v2.0.1, FFmpeg n8.1.3) by [iamf-sentinel-pro](https://github.com/jlivingston-Cipher/iamf-sentinel-pro)'s pinned recipe, and EAR 2.1.0; proved on Debian trixie by `.github/workflows/toolchain.yml` |
 | `macos/complete_toolchain.sh` | On macOS, completes a root that already holds iamf-tools: the loudness kernel, libiamf's `iamfdec`, FFmpeg, MP4Box and a video donor ([`macos/README.md`](macos/README.md)) |
 | `adm_ingest_run.py` | The ingest matrix: every corpus file × both IAMF profiles × the importance-threshold axis; captures rc/stderr/timing, probes every produced bitstream, and diffs outcomes against the manifest's pre-registered expectations |
 | `ear_prerender.py` | Pre-renders the same source ADM with the EBU ADM Renderer (EAR, BS.2127) on BS.2051 reference layouts — the independent oracle |
-| `fidelity_measure.py` | Per bitstream: decode on reference layouts, then measure routing survival (spectral identity), per-channel and overall RMS error (raw and gain-matched), 100 ms windowed error envelopes, energy-vector angular error vs analytic trajectories, and BS.1770 loudness of each render vs the bitstream's declared values |
+| `fidelity_measure.py` | Per bitstream: decode on reference layouts, then measure routing survival (spectral identity), per-channel and overall RMS error (raw and gain-matched), 100 ms windowed error envelopes, energy-vector angular error vs analytic trajectories (Cartesian objects also against the BS.2127-0 §10.1.2 reading, `bs2127_position.py`), and BS.1770 loudness of each render vs the bitstream's declared values; with iamf-sentinel-pro installed, per-track level and direction conversion readings (S-333/S-334) |
 | `density_probe.py` | Maps the automation-density failure boundary of the encoder's wav splicer across block-count grids |
 
 EAR and an IAMF renderer legitimately differ (BS.2127 point-source panning vs the encoder's
@@ -79,8 +79,15 @@ produced the F14–F26 band of the failure register published in the companion v
 [`F_TO_CHECK.md`](https://github.com/jlivingston-Cipher/iamf-sentinel/blob/main/F_TO_CHECK.md) —
 among them: no authored ADM gain of any kind survives conversion, spherical position coordinates
 are silently zeroed to origin (+6 dB collapse), the importance threshold silently does nothing,
-and roughly half of plausible automation grids abort the encoder. Archived run records are in
-[`evidence/`](evidence/README.md).
+and roughly half of plausible automation grids abort the encoder. Those records are archived in
+[`evidence/2026-07-study/`](evidence/2026-07-study/).
+
+The run at iamf-tools v4.0.0 (November 2026, [`evidence/2026-11-v4.0.0/`](evidence/2026-11-v4.0.0/))
+meets every published pre-registered expectation; the dense automation grids and object gains
+that stopped the July encoder now encode, spherical objects no longer collapse, and the
+annotations carry names. It also shows what a Cartesian position in this corpus means to the
+standard's renderer, and where that differs from the §10.1.2 conversion
+([`evidence/README.md`](evidence/README.md)).
 
 ## Related projects
 
