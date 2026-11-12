@@ -44,6 +44,7 @@ EAR_VERSION=2.1.0
 # EAR 2.1.0 imports pkg_resources, which setuptools 81 removed and which a
 # fresh venv does not carry at all: pinned below, or ear-render fails at import.
 EAR_SETUPTOOLS='setuptools<81'
+UV_VERSION=0.4.30
 mkdir -p "$ROOT" "$WORK" || exit 1
 stage() { echo "=== STAGE $1 [$(date +%H:%M:%S)] ==="; }
 fail() { echo "BUILD-FAIL: $*"; exit 1; }
@@ -73,7 +74,18 @@ for s in $STAGES; do
     ;;
   ear)
     stage ear
-    python3 -m venv "$ROOT/earenv" || fail "venv (python3-venv installed?)"
+    # EAR 2.1.0 requires numpy~=1.14 and lxml~=4.4, which have no wheels for
+    # Python 3.13 (Debian trixie's): pip falls back to compiling numpy 1.26.4
+    # and fails (measured in this repo's toolchain workflow, 2026-11-12). So
+    # the venv runs on CPython 3.12, fetched by uv when python3 is newer.
+    if python3 -c 'import sys; sys.exit(sys.version_info[:2] > (3, 12))'; then
+      python3 -m venv "$ROOT/earenv" || fail "venv (python3-venv installed?)"
+    else
+      python3 -m venv "$WORK/uvenv" && "$WORK/uvenv/bin/pip" install -q "uv==$UV_VERSION" \
+        || fail "uv==$UV_VERSION"
+      "$WORK/uvenv/bin/uv" venv -q --seed --python 3.12 "$ROOT/earenv" \
+        || fail "uv venv --python 3.12"
+    fi
     "$ROOT/earenv/bin/pip" install -q "ear==$EAR_VERSION" "$EAR_SETUPTOOLS" \
       || fail "pip install ear==$EAR_VERSION"
     "$ROOT/earenv/bin/ear-render" --help > /dev/null 2>&1 || fail "ear-render"
